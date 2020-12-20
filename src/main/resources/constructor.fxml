@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vsu.larionov.main.Main.ConstructorController">
    <children>
-      <TextField fx:id="text" layoutX="226.0" layoutY="99.0" />
-      <Button fx:id="sendButton" layoutX="274.0" layoutY="288.0" mnemonicParsing="false" text="Button" />
+      <TextField fx:id="text" layoutX="17.0" layoutY="36.0" prefHeight="25.0" prefWidth="532.0" />
+      <Button fx:id="sendButton" layoutX="264.0" layoutY="288.0" mnemonicParsing="false" text="Сохранить" />
+      <ComboBox fx:id="trainType" layoutX="14.0" layoutY="99.0" prefHeight="25.0" prefWidth="175.0" promptText="Выберите тип поезда" />
+      <ComboBox fx:id="carriageCargoType" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="175.0" promptText="Выберите тип вагона" />
+      <ComboBox fx:id="carriagePassengerType" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="175.0" promptText="Выберите тип вагона" />
+      <Button fx:id="Accept" layoutX="257.0" layoutY="99.0" mnemonicParsing="false" text="Подтвердить" />
+      <Button fx:id="Add" layoutX="256.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Добавить" />
    </children>
 </AnchorPane>

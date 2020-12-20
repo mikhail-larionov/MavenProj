@@ -16,7 +16,7 @@ public class CargoTrain extends Train{
     private final static String type = TrainTypes.CARGO.getType();
     public CargoTrain(){
         super(type);
-        db = new DB();
+
     }
     public CargoTrain(String type, Long id){
         super(type, id);

@@ -27,6 +27,8 @@ public class Main extends Application {
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
     }
+    //todo jar
+//    крашится потому перенес sample в папку resources/test
 
 
 

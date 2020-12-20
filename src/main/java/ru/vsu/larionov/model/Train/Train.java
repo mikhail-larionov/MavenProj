@@ -43,7 +43,6 @@ public abstract class Train implements TrainStorage<Train> {
     protected BigDecimal maxSpeed;
     private  ArrayList<Locomotive> locomotives = new ArrayList<>();
     private  ArrayList<Carriage> carriages = new ArrayList<>();
-    protected DB db;
     protected Train(String type, Long id){
         this.type = type;
         this.id = id;
@@ -66,7 +65,13 @@ public abstract class Train implements TrainStorage<Train> {
             locomotives.add(locomotive);
         }
     }
+    public void addLocomotive(BigDecimal weight, String manufacturer, BigDecimal width,
+                              BigDecimal length, BigDecimal power){
+        Locomotive locomotive = new Locomotive(weight, manufacturer, width, length, power);
+        numberOfCarriage++;
+        addLocomotive(locomotive);
 
+    }
     public void addLocomotive(BigDecimal weight, String manufacturer, BigDecimal width,
                               BigDecimal length, BigDecimal power, Long trainId) throws SQLException {
         if (weight.doubleValue() > 0 && width.doubleValue() > 0 && length.doubleValue() > 0 && power.doubleValue() > 0) {
@@ -141,7 +146,6 @@ public abstract class Train implements TrainStorage<Train> {
                 ", maxSpeed=" + maxSpeed +
                 ", locomotives=" + locomotives +
                 ", carriages=" + carriages +
-                ", db=" + db +
                 '}';
     }
 }

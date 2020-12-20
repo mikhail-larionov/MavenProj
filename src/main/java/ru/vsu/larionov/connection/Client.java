@@ -1,10 +1,13 @@
 package ru.vsu.larionov.connection;
 
+import ru.vsu.larionov.DTO;
 import ru.vsu.larionov.main.Main.Controller;
 import ru.vsu.larionov.main.Main.Main;
+import ru.vsu.larionov.parser.Parser;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Client {
     private Integer hangarNumber = 1;
@@ -25,16 +28,15 @@ public class Client {
         new Thread(() -> {
             while (true) {
                 if (isConnected) {
-                    String string = null;
+                    String DTOs = null;
                     try {
-                        string = connection.receive();
+                        String data = connection.receive();
+                        Hangars hangars = Parser.hangarsParser(data);
+                        Main.controller.update(hangars);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    if (!string.isEmpty()) {
 
-                        Main.controller.update(1, string);
-                    }
                 }
             }
 
@@ -43,5 +45,6 @@ public class Client {
     }
     public void sentMessageForAll(String string) throws IOException {
         connection.send(string);
+        //todo shutdowh hook
     }
 }
