@@ -66,33 +66,4 @@ public void deleteById(Long id) throws SQLException {
     statement.executeUpdate();
 }
 
-    //Domen driver design
-//    public List<Train> getAllTrains(){
-//        List<Train> trains = new ArrayList<>();
-//        try {
-//            Connection connection = getConnection();
-//            PreparedStatement statement = connection.prepareStatement("select Train_id,Train_Type,Number_Of_carriage, Max_Speed from TRAINS");
-//            ResultSet rs = statement.executeQuery();
-//
-//            while (rs.next()) {
-//                Long train_id = rs.getLong(1);
-//                String train_type = rs.getString(2);
-//                int number_of_carriage = rs.getInt(3);
-//                BigDecimal max_speed = rs.getBigDecimal(4);
-//                if ("CARGO".trim().toUpperCase().equals(train_type.trim().toUpperCase())) {
-//                    Train train = new PassengerTrain(train_type, number_of_carriage, train_id, max_speed);
-//                    trains.add(train);
-//                }
-//                else {
-//                    Train train = new CargoTrain(train_type, number_of_carriage, train_id, max_speed);
-//                    trains.add(train);
-//                }
-//            }
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        return trains;
-//    }
-//todo реализовать по йди и для поезда и для вагона
 }

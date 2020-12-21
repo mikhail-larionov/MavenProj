@@ -1,3 +1,5 @@
+package DbTests;
+
 import org.junit.Assert;
 import org.junit.Test;
 import ru.vsu.larionov.db.DB;
@@ -54,20 +56,20 @@ public class DbTest {
         DB db = new DB();
         Train train = db.getTrainById(id + 1);
     }
-//    @Test
-//    public void deleteTrainByIdTest() throws SQLException {
-//        DB db = new DB();
-//        Train train = db.getTrainById(idForDeleting);
-//        String msg = "Поезд не найден";
-//        String expMsg = null;
-//        db.deleteById(idForDeleting);
-//        try {
-//            Train train1 = db.getTrainById(idForDeleting);
-//        }
-//        catch (NullPointerException ex){
-//            expMsg = ex.getMessage();
-//        }
-//        Assert.assertEquals(msg, expMsg);
-//    }
-//    //todo deletebyid return id если успешно иначе нклл
+    @Test
+    public void deleteTrainByIdTest() throws SQLException {
+        DB db = new DB();
+        Train train = db.getTrainById(idForDeleting);
+        String msg = "Поезд не найден";
+        String expMsg = null;
+        db.deleteById(idForDeleting);
+        try {
+            Train train1 = db.getTrainById(idForDeleting);
+        }
+        catch (NullPointerException ex){
+            expMsg = ex.getMessage();
+        }
+        Assert.assertEquals(msg, expMsg);
+    }
+
 }

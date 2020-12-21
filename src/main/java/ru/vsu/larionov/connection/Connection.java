@@ -1,7 +1,5 @@
 package ru.vsu.larionov.connection;
 
-import ru.vsu.larionov.DTO;
-
 import java.io.*;
 import java.net.Socket;
 
@@ -15,7 +13,6 @@ public class Connection {
         this.dataOutputStream = new DataOutputStream(socket.getOutputStream());
     }
     public String receive() throws IOException {
-//        System.out.println(dataInputStream.readUTF());
         return dataInputStream.readUTF();
     }
     public void send(String string) throws IOException {

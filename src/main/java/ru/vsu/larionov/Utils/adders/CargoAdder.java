@@ -1,5 +1,6 @@
-package ru.vsu.larionov.main.Main;
+package ru.vsu.larionov.Utils.adders;
 
+import ru.vsu.larionov.factory.Factory;
 import ru.vsu.larionov.model.Carriage.CargoCarriage.CargoCarriage;
 import ru.vsu.larionov.model.Carriage.CargoCarriage.CloseCargoCarriage;
 import ru.vsu.larionov.model.Carriage.CargoCarriage.OpenCargoCarriage;
@@ -12,11 +13,11 @@ public class CargoAdder {
     public static CargoCarriage add(BigDecimal weight, String manufacturer, BigDecimal width,
                              BigDecimal length, BigDecimal carrying, BigDecimal volume, String type){
         if (type.equalsIgnoreCase("CloseCargo"))
-            return new CloseCargoCarriage(weight, manufacturer, width, length, carrying, volume);
+            return Factory.createCloseCargoCarriage(weight, manufacturer, width, length, carrying, volume);
         if (type.equalsIgnoreCase("OpenCargo"))
-            return new OpenCargoCarriage(weight, manufacturer, width, length, carrying, volume);
+            return Factory.createOpenCargoCarriage(weight, manufacturer, width, length, carrying, volume);
         if (type.equalsIgnoreCase("Tank"))
-            return new Tank(weight, manufacturer, width, length, carrying, volume);
+            return Factory.createTank(weight, manufacturer, width, length, carrying, volume);
         return null;
     }
 }

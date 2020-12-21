@@ -1,13 +1,10 @@
 package ru.vsu.larionov.connection;
 
-import ru.vsu.larionov.DTO;
-import ru.vsu.larionov.main.Main.Controller;
 import ru.vsu.larionov.main.Main.Main;
-import ru.vsu.larionov.parser.Parser;
+import ru.vsu.larionov.Utils.Parser;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Client {
     private Integer hangarNumber = 1;
@@ -28,7 +25,6 @@ public class Client {
         new Thread(() -> {
             while (true) {
                 if (isConnected) {
-                    String DTOs = null;
                     try {
                         String data = connection.receive();
                         Hangars hangars = Parser.hangarsParser(data);

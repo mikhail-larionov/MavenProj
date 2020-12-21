@@ -14,7 +14,14 @@ public class Locomotive extends Carriage {
     private BigDecimal power;
     private Long Id;
     private Long trainId;
-    private final static String type = "Locomotive";
+    private final static String type = "LOCOMOTIVE";
+
+    public static String getSubtype() {
+        return subtype;
+    }
+
+    private final static String subtype = "LOCOMOTIVE";
+
     public Locomotive(BigDecimal weight, String manufacturer, BigDecimal width,
                       BigDecimal length, BigDecimal power){
         super(weight, manufacturer, width ,length, type, type);

@@ -43,6 +43,35 @@ public abstract class Train implements TrainStorage<Train> {
     protected BigDecimal maxSpeed;
     private  ArrayList<Locomotive> locomotives = new ArrayList<>();
     private  ArrayList<Carriage> carriages = new ArrayList<>();
+
+    public Train(String type, Long id, int numberOfCarriage, BigDecimal maxSpeed, ArrayList<Locomotive> locomotives, ArrayList<Carriage> carriages) {
+        this.type = type;
+        this.id = id;
+        this.numberOfCarriage = numberOfCarriage;
+        this.maxSpeed = maxSpeed;
+        this.locomotives = locomotives;
+        this.carriages = carriages;
+    }
+
+    public Train() {
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setNumberOfCarriage(int numberOfCarriage) {
+        this.numberOfCarriage = numberOfCarriage;
+    }
+
+    public void setMaxSpeed(BigDecimal maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void setCarriages(ArrayList<Carriage> carriages) {
+        this.carriages = carriages;
+    }
+
     protected Train(String type, Long id){
         this.type = type;
         this.id = id;
@@ -52,9 +81,24 @@ public abstract class Train implements TrainStorage<Train> {
         this.type = type;
     }
 
-    public void addCarriage(Carriage carriage) {
+    public Carriage addCarriage(Carriage carriage) {
         carriages.add(carriage);
         numberOfCarriage++;
+        return carriage;
+    }
+    public void removeLast(Carriage carriage){
+        if (carriage instanceof Locomotive){
+            if (locomotives.size() > 0){
+                locomotives.remove(locomotives.size() - 1);
+                numberOfCarriage--;
+            }
+        }
+        else {
+            if (carriages.size() > 0){
+                carriages.remove(carriages.size() - 1);
+                numberOfCarriage--;
+            }
+        }
     }
 
     private void addLocomotive(Locomotive locomotive) throws IllegalArgumentException {
@@ -65,12 +109,12 @@ public abstract class Train implements TrainStorage<Train> {
             locomotives.add(locomotive);
         }
     }
-    public void addLocomotive(BigDecimal weight, String manufacturer, BigDecimal width,
+    public Locomotive addLocomotive(BigDecimal weight, String manufacturer, BigDecimal width,
                               BigDecimal length, BigDecimal power){
         Locomotive locomotive = new Locomotive(weight, manufacturer, width, length, power);
         numberOfCarriage++;
         addLocomotive(locomotive);
-
+        return locomotive;
     }
     public void addLocomotive(BigDecimal weight, String manufacturer, BigDecimal width,
                               BigDecimal length, BigDecimal power, Long trainId) throws SQLException {

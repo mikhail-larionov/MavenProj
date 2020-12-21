@@ -25,15 +25,7 @@ public class TestConstructor {
     final BigDecimal DEFAULT_VOLUME = BigDecimal.valueOf(114);
     final BigDecimal DEFAULT_POWER = BigDecimal.valueOf(90);
 
-    @Test
-    public void testCreateSingleCargoTrain(){
 
-    }
-//    @Test(expected = NullPointerException.class)
-//    public void testAddCarriageWithoutTrain() throws SQLException {
-//        PassengerConstructor constructor = new PassengerConstructor();
-//        constructor.addCoupeCarriage(DEFAULT_WEIGHT,DEFAULT_MANUFACTURE,DEFAULT_WIDTH,DEFAULT_LENGTH);
-//    }
     @Test
     public void testAddCoupeCarriage() throws SQLException {
         PassengerConstructor constructor = new PassengerConstructor();
